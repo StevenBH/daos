@@ -36,6 +36,7 @@ class MdtestBase(DfuseTestBase):
         # Get the parameters for Mdtest
         self.mdtest_cmd = MdtestCommand()
         self.mdtest_cmd.get_params(self)
+        # TODO adjust tests to work with this ppn
         self.ppn = self.params.get("ppn", '/run/mdtest/client_processes/*')
         self.processes = self.params.get("np", '/run/mdtest/client_processes/*')
         self.manager = self.params.get("manager", '/run/mdtest/*', "MPICH")

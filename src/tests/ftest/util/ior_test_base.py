@@ -49,6 +49,7 @@ class IorTestBase(DfuseTestBase):
         # Get the parameters for IOR
         self.ior_cmd = IorCommand()
         self.ior_cmd.get_params(self)
+        # TODO adjust tests to work with this ppn
         self.processes = self.params.get("np", '/run/ior/client_processes/*')
         self.ppn = self.params.get("ppn", '/run/ior/client_processes/*')
         self.subprocess = self.params.get("subprocess", '/run/ior/*', False)
@@ -71,6 +72,10 @@ class IorTestBase(DfuseTestBase):
         # update container oclass
         if self.ior_cmd.dfs_oclass:
             self.container.oclass.update(self.ior_cmd.dfs_oclass.value)
+
+        # update container chunk size
+        if self.ior_cmd.dfs_chunk:
+            self.container.chunk_size.update(self.ior_cmd.dfs_chunk.value)
 
         # create container
         self.container.create()

@@ -2,7 +2,7 @@
 %define server_svc_name daos_server.service
 %define agent_svc_name daos_agent.service
 
-%global mercury_version 2.0.1-1%{?dist}
+%global mercury_version 2.1.0~rc4-1%{?dist}
 %global libfabric_version 1.14.0~rc3-1
 %global __python %{__python3}
 
@@ -14,7 +14,7 @@
 
 Name:          daos
 Version:       1.3.106
-Release:       6%{?relval}%{?dist}
+Release:       7%{?relval}%{?dist}
 Summary:       DAOS Storage Engine
 
 License:       BSD-2-Clause-Patent
@@ -516,6 +516,9 @@ getent passwd daos_agent >/dev/null || useradd -s /sbin/nologin -r -g daos_agent
 # No files in a meta-package
 
 %changelog
+* Fri Nov 19 2021 Kenneth Cain <kenneth.c.cain@intel.com> 1.3.106-7
+- Just testing with mercury v2.1.0rc4
+
 * Tue Nov 16 2021 John E. Malmberg <john.e.malmberg@intel.com> 1.3.106-6
 - Fix version of libpemobj1 for suse
 
